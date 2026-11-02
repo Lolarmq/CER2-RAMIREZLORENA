@@ -1,0 +1,17 @@
+{% extends 'patrimonio/base.html' %}
+
+{% block titulo %}Iniciar sesion - Patrimonio{% endblock %}
+
+{% block contenido %}
+
+    <h2>Iniciar sesion</h2>
+    <form method = "post" action = "{% url 'login' %}">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type = "submit">Ingresar</button>
+        
+    </form>
+
+{% endblock %}

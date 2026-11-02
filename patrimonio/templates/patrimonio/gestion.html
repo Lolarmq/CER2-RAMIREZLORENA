@@ -1,0 +1,52 @@
+
+{% extends 'patrimonio/base.html' %}
+
+{% block titulo %}Gestión - Patrimonio Vivo{% endblock %}
+
+{% block contenido %}
+
+    <h2 class="text-center mb-4">Área de gestión</h2>
+
+    {% if perms.patrimonio.add_lugarpatrimonial %}
+        <div class="mb-4">
+            <a href="{% url 'agregar_lugar' %}" class="btn btn-success">
+                Agregar lugar patrimonial
+            </a>
+        </div>
+    {% endif %}
+
+    <div class="row">
+
+        {% for lugar in lugares %}
+
+            <div class="col-md-6 col-lg-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="{{ lugar.imagen }}" class="card-img-top imagen-lugar" alt="{{ lugar.nombre }}">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">{{ lugar.nombre }}</h5>
+
+                        <p class="card-text">{{ lugar.ubicacion }}</p>
+
+                        {% if perms.patrimonio.change_lugarpatrimonial %}
+                            <a href="{% url 'editar_lugar' lugar.id %}" class="btn btn-success">
+                                Editar
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+        {% empty %}
+
+            <p>No hay lugares registrados.</p>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

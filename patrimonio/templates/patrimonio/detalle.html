@@ -1,0 +1,43 @@
+{% extends 'patrimonio/base.html' %}
+
+{% block titulo %}{{ lugar.nombre }} - Patrimonio Vivo{% endblock %}
+
+{% block contenido %}
+
+<div class="row align-items-center">
+
+    <div class="col-md-6 mb-4">
+        <img src="{{ lugar.imagen }}" 
+             class="img-fluid rounded shadow"
+             alt="{{ lugar.nombre }}">
+    </div>
+
+    <div class="col-md-6">
+        <h2>{{ lugar.nombre }}</h2>
+
+        <p>{{ lugar.descripcion }}</p>
+
+        <p>
+            <strong>Ubicación:</strong>
+            {{ lugar.ubicacion }}
+        </p>
+
+        <p>
+            <strong>Año de construcción:</strong>
+            {{ lugar.anio_construccion }}
+        </p>
+
+        <p>
+            <strong>Categoría:</strong>
+            {{ lugar.categoria }}
+        </p>
+
+        <a href="{% url 'catalogo' %}" class="btn btn-success">
+            Volver al catálogo
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}
+

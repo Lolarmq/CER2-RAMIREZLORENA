@@ -1,0 +1,54 @@
+{% extends 'patrimonio/base.html' %}
+
+{% block titulo %}Categorías - Patrimonio Vivo{% endblock %}
+
+{% block contenido %}
+
+    <h2 class="text-center mb-3">Categorías patrimoniales</h2>
+
+    <p class="text-center mb-4">
+        Explora nuestro patrimonio según sus distintas categorías.
+    </p>
+
+    <div class="row">
+
+        {% for categoria in categorias %}
+
+            <div class="col-md-6 col-lg-4 mb-4">
+
+                <div class="card tarjeta-categoria h-100 shadow-sm">
+
+                    {% if categoria.imagen %}
+                        <img src="{{ categoria.imagen }}"
+                             class="card-img-top imagen-categoria"
+                             alt="{{ categoria.nombre }}">
+                    {% endif %}
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">{{ categoria.nombre }}</h5>
+
+                        <p class="card-text">
+                            {{ categoria.descripcion }}
+                        </p>
+
+                        <a href="{% url 'filtrar_categoria' categoria.id %}"
+                           class="btn btn-success mt-auto">
+                            Ver lugares
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% empty %}
+
+            <p class="text-center">No hay categorías registradas.</p>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

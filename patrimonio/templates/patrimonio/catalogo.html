@@ -1,0 +1,54 @@
+
+{% extends 'patrimonio/base.html' %}
+
+{% block titulo %}Catálogo - Patrimonio Vivo{% endblock %}
+
+{% block contenido %}
+
+    <h2 class="text-center mb-4">Catálogo Patrimonial</h2>
+
+    <div class="row">
+
+        {% for lugar in lugares %}
+
+            <div class="col-md-6 col-lg-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <img src="{{ lugar.imagen }}" class="card-img-top imagen-lugar" alt="{{ lugar.nombre }}">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">{{ lugar.nombre }}</h5>
+
+                        <p class="card-text descripcion resumida">
+                            {{ lugar.descripcion|truncatewords:15 }}
+                        </p>
+
+                        <p class="text-muted">
+                            <strong>Ubicación:</strong> {{ lugar.ubicacion }}
+                        </p>
+
+                        <p class="text-muted">
+                            <strong>Categoría:</strong> {{ lugar.categoria }}
+                        </p>
+
+                        <a href="{% url 'detalle' lugar.id %}" class="btn btn-success">
+                            Ver detalles
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% empty %}
+
+            <p class="text-center">No hay lugares patrimoniales registrados.</p>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

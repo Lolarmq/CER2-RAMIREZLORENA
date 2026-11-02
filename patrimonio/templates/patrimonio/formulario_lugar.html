@@ -1,0 +1,30 @@
+
+{% extends 'patrimonio/base.html' %}
+
+{% block titulo %}Formulario - Patrimonio Vivo{% endblock %}
+
+{% block contenido %}
+
+<div class="contenedor-formulario">
+
+    <h2 class="text-center mb-4">Datos del lugar patrimonial</h2>
+
+    <form method="post" class="formulario-lugar">
+
+        {% csrf_token %}
+
+        {{ formulario.as_p }}
+
+        <button type="submit" class="btn btn-success">
+            Guardar
+        </button>
+
+        <a href="{% url 'gestion' %}" class="btn btn-secondary">
+            Volver a gestión
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

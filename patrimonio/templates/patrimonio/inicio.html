@@ -1,0 +1,84 @@
+{% extends 'patrimonio/base.html' %}
+
+{% block titulo %}Inicio - Patrimonio Vivo{% endblock %}
+
+{% block contenido %}
+
+    <div class="portada">
+
+        <div class="texto-portada">
+            <h1>Descubre el patrimonio de Chile</h1>
+
+            <p>
+                Somos una fundación dedicada a identificar,
+                documentar y difundir lugares de interés
+                patrimonial de distintas ciudades de Chile.
+            </p>
+
+            <p>
+                Conoce edificios históricos, monumentos,
+                murales y otros espacios que forman parte
+                de nuestra identidad.
+            </p>
+
+            <a href="{% url 'catalogo' %}" class="btn btn-success">
+                Explorar catálogo
+            </a>
+        </div>
+
+        <div class="imagen-portada">
+            <img src="https://services.meteored.com/img/article/estos-son-los-7-sitios-de-chile-declarados-patrimonio-de-la-humanidad-por-la-unesco-1706131233112_1280.jpeg"
+                 alt="Paisaje patrimonial de Chile">
+        </div>
+
+    </div>
+
+    <h2 class="text-center mt-5 mb-4">Nuestro patrimonio</h2>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://www.fmdos.cl/wp-content/uploads/2021/05/rutas-patrimoniales-de-chile-ministerio-de-bienes-nacionales.jpg"
+                     class="card-img-top imagen-inicio"
+                     alt="Edificios históricos">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Edificios históricos</h5>
+                    <p class="card-text">
+                        Construcciones que conservan la historia y arquitectura de nuestro país.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://i.pinimg.com/originals/df/fc/ae/dffcae0c1f61cc9cf51530f95fb062d0.jpg"
+                     class="card-img-top imagen-inicio"
+                     alt="Obras de arte">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Monumentos y arte</h5>
+                    <p class="card-text">
+                        Esculturas, murales y expresiones artísticas de valor cultural.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="https://tiemporeal.periodismoudec.cl/wp-content/uploads/2024/05/laguna-san-rafael-e1717140580794-1132x509.jpg"
+                     class="card-img-top imagen-inicio"
+                     alt="Paisajes naturales">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Patrimonio natural</h5>
+                    <p class="card-text">
+                        Paisajes y espacios naturales que forman parte de nuestra identidad.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
