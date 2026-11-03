@@ -8,7 +8,7 @@ class Categoria(models.Model):
     imagen = models.URLField(blank = True)
 
     def __str__(self):
-        return self.nombre + self.descripcion
+        return self.nombre
 
 class LugarPatrimonial(models.Model):
 
